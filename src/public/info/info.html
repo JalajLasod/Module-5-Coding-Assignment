@@ -1,8 +1,8 @@
-<div class="container"ng-if="reg.user.firstname.length>-1">
-  First Name : {{reg.user.firstname}}
-  Last Name : {{reg.user.lastname}}
-  Email : {{reg.user.email}}
-  Phone Number : {{reg.user.phone}}
+<div class="container">
+  First Name : {{infoCtrl.user.firstname}}
+  Last Name : {{infoCtrl.user.lastname}}
+  Email : {{infoCtrl.user.email}}
+  Phone Number : {{infoCtrl.user.phone}}
 </div>
 <div class="container" ng-if="reg.user.firstname.length=-1">
   Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>

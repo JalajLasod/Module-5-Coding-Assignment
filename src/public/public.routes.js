@@ -47,11 +47,11 @@ function routeConfig ($stateProvider) {
       controller:'signupController',
       controllerAs:'reg'
     })
-    .state('info',{
-      url:'/info',
-      templateUrl:'src/public/info/info.html',
-      controller:'signupController',
-      controllerAs:'reg'
+    .state('public.info', {
+      url: '/info',
+      templateUrl: 'src/public/info/info.html',
+      controller: 'infoController',
+      controllerAs: 'infoCtrl'
     });
 }
 })();

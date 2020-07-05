@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="" ng-if="reg.display">
-    <form name="signUpForm" novalidate id="form" >
+  <div class="">
+    <form name="signUpForm" novalidate id="form" ng-submit="reg.signup(signUpForm)" >
 
       <input type="text" name="firstname" placeholder="Enter First Name"
       ng-model="reg.user.firstname"
@@ -30,11 +30,11 @@
         Must be a valid phone number
       </span><br>
 
+      <input type="text" name="item" placeholder="Menu Number of fav dish" ng-model="reg.favoriteDish"><br>
+      <input type="submit" name="" value="Signup">
+
     </form>
-    <input type="text" name="item" placeholder="Menu Number of fav dish" ng-model="reg.user.item"><br>
-    <button type="button" id="button" name="button" ng-click="reg.submit()"
-    ng-disabled="signUpForm.$invalid">Sign Up</button>
   </div>
 
-  <p ng-if="!reg.display">Sign Up Successful. <a href="index.html">HOME</a></p>
+  <p ng-show="reg.showMessage">Sign Up Successful. <a href="index.html">HOME</a></p>
 </div>

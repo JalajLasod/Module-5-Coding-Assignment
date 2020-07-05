@@ -1,32 +1,42 @@
-(function () {
-  "use strict";
+(function() {
+    'use strict';
 
-  angular.module('public')
-  .controller('signupController',signupController);
+    angular.module('public').controller('signupController', signupController);
 
-  signupController.$inject=['MenuService'];
+    signupController.$inject = ['MenuService'];
 
-  function signupController(MenuService) {
-    var reg=this;
-    reg.display=true;
-    reg.user=[];
-    console.log(reg.user);
+    function signupController(MenuService) {
+      var ctrl = this;
 
-    reg.submit=function () {
-      if (reg.user.item) {
-        MenuService.getMenuItems(reg.user.item.toUppercase).then(function (result) {
-          console.log(result.menu_items);
-          for (var i = 0; i < result.menu_items.length; i++) {
-            if (reg.user.item = result.menu_items[i].short_name) {
-              reg.display=false;
-              return;
+        ctrl.user = {};
+        // ctrl.favoriteDish = {};
+
+        ctrl.showError = false;       // When this value is true error about the favorite dish wiil be shown
+        ctrl.showMessage = false;     // When this value is true message about successfull signup will be shown
+
+        ctrl.signup = function(form) {
+            ctrl.showError = false;
+            ctrl.showMessage = false;
+            // If the form is not valid don't submit
+            if(form.$invalid) {
+                console.log('The form is not valid');
+                return;
             }
-          }
-          reg.user=[];
-          })
-          console.log(reg.user);
-      }
 
-    }
-  }
-})()
+            MenuService.getFavoriteDish(ctrl.favoriteDish).then(function(response) {
+                ctrl.user.favoriteDishDetails = response.data;
+                console.log(ctrl.favoriteDish);
+                MenuService.saveUser(ctrl.user);
+                ctrl.showMessage = true;
+            }, function(error) {
+                console.log(error);
+                ctrl.showError = true;
+            });
+
+        }
+    };
+
+
+
+
+})();
