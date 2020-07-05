@@ -10,10 +10,11 @@ function MenuService($http, ApiPath) {
   var service = this;
   service.user = {};
 
-  service.saveUser = function(user) {
+  service.saveUser = function(user,dish) {
     console.log(user);
     service.user = angular.copy(user);
     console.log(service.user);
+    service.dish=angular.copy(dish)
   };
 
   service.getUser = function() {

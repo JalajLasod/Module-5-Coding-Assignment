@@ -3,6 +3,10 @@
   Last Name : {{infoCtrl.user.lastname}}
   Email : {{infoCtrl.user.email}}
   Phone Number : {{infoCtrl.user.phone}}
+  favorite Dish : {{infoCtrl.user.favoriteDishDetails.short_name}}
+</div>
+<div class="container" ng-if="infoCtrl.favoriteDish">
+
 </div>
 <div class="container" ng-if="!infoCtrl.signedUp">
   Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>

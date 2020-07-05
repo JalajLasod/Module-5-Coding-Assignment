@@ -26,7 +26,7 @@
             MenuService.getFavoriteDish(ctrl.favoriteDish).then(function(response) {
                 ctrl.user.favoriteDishDetails = response.data;
                 console.log(ctrl.favoriteDish);
-                MenuService.saveUser(ctrl.user);
+                MenuService.saveUser(ctrl.user,ctrl.favoriteDish);
                 ctrl.showMessage = true;
             }, function(error) {
                 console.log(error);
