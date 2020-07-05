@@ -4,3 +4,6 @@
   Email : {{reg.user.email}}
   Phone Number : {{reg.user.phone}}
 </div>
+<div class="container" ng-if="reg.user.firstname.length=-1">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</div>
